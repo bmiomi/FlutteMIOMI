@@ -26,7 +26,6 @@ class Containertask extends StatelessWidget {
             itemBuilder: (context, index) {
               return Dismissible(
                 onDismissed: (direction) {
-                  print('soy direcion $direction');
                     data.delete(index);
                 },
                 key: Key(snapshot.data[index].nombretarea),
