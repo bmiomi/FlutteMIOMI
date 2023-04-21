@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/core/dependency/dependency.dart';
-import 'package:todo/domain/use_case/task/create_task.dart';
-import 'package:todo/domain/use_case/task/getall_task.dart';
+import "package:todo/domain/domain.dart";
 import 'package:todo/presentacion/presentacion.dart';
 
 void main() {
