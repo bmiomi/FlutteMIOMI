@@ -2,7 +2,7 @@ name: CI-Flutter-TODO-Miomi
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   flutter_test:
