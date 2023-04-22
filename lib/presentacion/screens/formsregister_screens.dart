@@ -34,7 +34,7 @@ class FormsPopUP extends StatelessWidget {
                 context: context,
                 initialDate: DateTime.now(),
                 firstDate: DateTime(1995), 
-                lastDate: DateTime(2024) 
+                lastDate: DateTime(2024)
               );
           popupforms.controller2.text= datapick.toString();
           },        
@@ -61,13 +61,8 @@ class FormsPopUP extends StatelessWidget {
           label: Text('Fin tarea'),
           suffixIcon: Icon(Icons.calendar_month_outlined),
           ),          
-         validator: (value) {
-          return DateTime.parse(popupforms.controller2.text).isAfter( DateTime.parse(popupforms.controller3.text) )? 'Error: Fecha inicio no debe ser inferior a fecha fin':null;
-
-        },
-
+         validator: (value) => DateTime.parse(popupforms.controller2.text).isAfter( DateTime.parse(popupforms.controller3.text) )? 'Error: Fecha inicio no debe ser inferior a fecha fin':null,        
         ),
-
     ]
   
     ));

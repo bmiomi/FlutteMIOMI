@@ -16,9 +16,10 @@ class Containertask extends StatelessWidget {
           return const Center(child: Text('No hay data'));
         }
         if (snapshot.data.isEmpty) {
-          return Container(
-            
-            child: Lottie.asset('assets/no-data.json'),
+          return Center(
+            child: Container(
+              child: Lottie.asset('assets/no-data.json'),
+            ),
           );
         }
         return ListView.builder(
@@ -26,7 +27,7 @@ class Containertask extends StatelessWidget {
             itemBuilder: (context, index) {
               return Dismissible(
                 onDismissed: (direction) {
-                    data.delete(index);
+                  data.delete(index);
                 },
                 key: Key(snapshot.data[index].nombretarea),
                 background: Container(

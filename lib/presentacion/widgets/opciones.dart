@@ -9,7 +9,7 @@ const Opciones({ Key? key }) : super(key: key);
     return ListView.builder(
       itemCount: 5,
       itemBuilder: (context, index) =>  ListTile(
-        title:    const Text('dato uno'),
+        title:    Text('Opcion $index'),
         subtitle: const Text('is subtitle'),
         leading: const Icon(Icons.person_sharp),
         onTap: () { },
