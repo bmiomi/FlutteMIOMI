@@ -9,7 +9,6 @@ on:
 
 jobs:
   build:
-    name: Run flutter test and analyze
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
