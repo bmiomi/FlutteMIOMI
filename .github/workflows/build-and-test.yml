@@ -8,7 +8,7 @@ on:
         - main
 
 jobs:
-  build-and-test:
+  build:
     name: Run flutter test and analyze
     runs-on: ubuntu-latest
     steps:
