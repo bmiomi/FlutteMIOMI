@@ -14,8 +14,8 @@ void setup() {
     )
     ));
 
-  getIt.registerSingleton<GetAllTask>( GetTaskimplent (taskRepository:  
-    TaskRepositoryImplement( 
+  getIt.registerSingleton<GetAllTask>( GetTaskimplent (
+    taskRepository:  TaskRepositoryImplement( 
       TaskDatasource()
     )
     ));

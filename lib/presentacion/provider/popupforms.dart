@@ -23,15 +23,13 @@ class PopUpForms extends ChangeNotifier {
  Future<void>save() async {
 
     if (_formKey.currentState!.validate()) {
-
-      final value = await createTask.create(ModelTask(
+      await createTask.create(ModelTask(
           nombretarea: controller.text,
           descripcion: controller1.text,
           fechainicio: controller2.text,
           fechafin: controller3.text));
       _estado = true;
       
-    
     }
   }
 
