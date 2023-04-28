@@ -1,18 +1,32 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:todo/core/dependency/dependency.dart';
-import 'package:todo/main.dart';
+
+import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
+import 'package:todo/data/data.dart';
 
 void main() {
 
-  testWidgets('validar forms', (WidgetTester tester) async {
+  TestWidgetsFlutterBinding.ensureInitialized();
 
-    setup();
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(  const StateApp());
-    // Verify  TEXTFORMFIEL that key "Ingrese un titulo".
-    find.widgetWithText(TextFormField,'asd' );
+  late  TaskRepositoryImplement taskRepositoryImplement;
 
+  sqfliteFfiInit();
+  databaseFactory = databaseFactoryFfi;
+
+  setUp(() {
+    taskRepositoryImplement=TaskRepositoryImplement(TaskDatasource());
+  });
+
+  test('validar forms', () async {
+    final result=await taskRepositoryImplement.createTasks(
+      ModelTask(
+          nombretarea: 'tarea de ejemplo', 
+          descripcion: 'descripcion de tarea', 
+          fechainicio: '2022-05-20', 
+          fechafin: '2022-05-29'));
+    expect(result
+      ,isA<int>());
   });
 
 }

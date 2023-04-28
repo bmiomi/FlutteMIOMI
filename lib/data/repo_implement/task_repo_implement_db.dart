@@ -4,7 +4,7 @@ import 'package:todo/domain/domain.dart';
 
 class TaskRepositoryImplement extends TaskRepository{
 
-  final  Datasource taskRepository;
+  final  TaskDatasource taskRepository;
 
   TaskRepositoryImplement(this.taskRepository);
     

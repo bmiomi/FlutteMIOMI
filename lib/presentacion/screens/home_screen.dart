@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// import 'package:provider/provider.dart';
 import 'package:todo/presentacion/presentacion.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -47,24 +47,22 @@ class HomeScreen extends StatelessWidget {
               TextButton(
                 child: const Text('ADD'),
                 onPressed: () async{
-                  final formspoup = context.read<PopUpForms>();
-                  final home = context.read<Getall>();
-                  await formspoup.save();
-                  if (formspoup.estado) {
-                    formspoup.clearform();
-                  await home.data();
-                  Navigator.of(context).pop();
-                  }
-
+                  // final formspoup = context.read<PopUpForms>();
+                  // final home = context.read<Getall>();
+                  // await formspoup.save();
+                  // if (formspoup.estado) {
+                  //   formspoup.clearform();
+                  // await home.data();
+                  // Navigator.of(context).pop();
+                  // }
                 },
               ),
               TextButton(
                   child: const Text('CANCEL'),
                   onPressed: () {                    
-                    final formspoup = context.read<PopUpForms>();
-                    formspoup.clearform();
-                    Navigator.of(context).pop();
-
+                    // final formspoup = context.read<PopUpForms>();
+                    // formspoup.clearform();
+                    // Navigator.of(context).pop();
                   }),
             ],
           );

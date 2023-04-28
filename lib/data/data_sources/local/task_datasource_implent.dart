@@ -4,22 +4,13 @@ import 'package:todo/data/models/task_model.dart';
 import 'package:todo/data/services/sqflitemodel.dart';
 import 'package:todo/domain/entities/task.dart';
 
-abstract class Datasource {
 
-  Future <Either<Failure, List<ModelTask>>> getAllTasks();
-  Future <Either<Failure, ModelTask>> getTask(String id);
-  Future <Either<Failure, int>>  createTasks(ModelTask data);
-  Future <Either<Failure, Tasktodo>> updateTasks(ModelTask data);
-  Future <Either<Failure, Tasktodo>>   deleteTasks(String id);
- 
-}
+class TaskDatasource {
 
+  ServicesDatabase servicesDatabase =ServicesDatabase.dbs;
 
-class TaskDatasource extends Datasource{
-
-  @override
   Future<Either<Failure, int>> createTasks(ModelTask data) async {
-    final db = await ServicesDatabase.dbs.database;
+    final db = await servicesDatabase.database;
     try {
       final value=await db.insert('task', data.toJson());
       return right(value);
@@ -28,10 +19,9 @@ class TaskDatasource extends Datasource{
     }
   }
 
-  @override
   Future<Either<Failure, List<ModelTask>>> getAllTasks() async {
     try {
-      final db = await ServicesDatabase.dbs.database;
+      final db = await servicesDatabase.database;
       var map = await db.query('TASK');
         return right(map.map((e) => ModelTask.fromJson(e)).toList());
       } catch (e) {
@@ -41,21 +31,15 @@ class TaskDatasource extends Datasource{
   }
 
   
-  @override
   Future<Either<Failure, ModelTask>> getTask(String id) {
-    // TODO: implement getTask
     throw UnimplementedError();
   }
 
-  @override
   Future<Either<Failure, Tasktodo>> updateTasks(ModelTask data) {
-    // TODO: implement updateTasks
     throw UnimplementedError();
   }
 
-  @override
   Future<Either<Failure, Tasktodo>> deleteTasks(String id) {
-    // TODO: implement deleteTasks
     throw UnimplementedError();
   }
 }
